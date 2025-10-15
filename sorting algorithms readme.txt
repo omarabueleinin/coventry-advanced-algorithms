@@ -12,8 +12,8 @@ selection sort
 
 finds the smallest thing and puts it at the front. does this over and over
 
-**pseudocode:**
-```
+pseudocode:
+
 SELECTION_SORT(arr, n)
   for i = 0 to n-2
     minIdx = i
@@ -21,7 +21,7 @@ SELECTION_SORT(arr, n)
       if arr[j] < arr[minIdx]
         minIdx = j
     swap arr[i] with arr[minIdx]
-```
+
 
 time: O(n²)  
 space: O(1)
@@ -66,6 +66,41 @@ time: O(n²)
 space: O(1)
 
 shifts elements over to make room for the current one
+
+
+
+
+quicksort
+
+picks a pivot and puts smaller stuff on left and bigger stuff on right. then does the same thing recursively on both sides
+
+pseudocode:
+
+QUICKSORT(arr, left, right)
+  i = left
+  j = right
+  pivot = arr[(left + right) / 2]
+  
+  while i <= j
+    while arr[i] < pivot
+      i++
+    while arr[j] > pivot
+      j--
+    if i <= j
+      swap arr[i] with arr[j]
+      i++
+      j--
+  
+  if left < j
+    QUICKSORT(arr, left, j)
+  if i < right
+    QUICKSORT(arr, i, right)
+
+
+time: O(n log n) average, O(n²) worst case  
+space: O(log n) for recursion stack
+
+way faster than the other ones for big arrays. uses divide and conquer
 
 
 
